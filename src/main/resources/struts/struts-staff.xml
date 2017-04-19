@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <!-- 员工配置 -->
+    <package name="sta" namespace="/" extends="common">
+        <action name="staffLoginAction" class="com.zzgo.crm.staff.web.action.StaffAction"
+                method="login">
+            <result type="redirectAction">staffGoHomeAction</result>
+        </action>
+        <action name="staffGoHomeAction" class="com.zzgo.crm.staff.web.action.StaffAction"
+                method="goHome">
+            <result name="home">/WEB-INF/pages/frame.jsp</result>
+        </action>
+        <action name="listStaffAction" class="com.zzgo.crm.staff.web.action.StaffAction"
+                method="findAll">
+            <result name="findAll">/WEB-INF/pages/staff/listStaff.jsp</result>
+        </action>
+    </package>
+</struts>

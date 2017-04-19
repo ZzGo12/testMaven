@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.zzgo.crm.post.domain.CrmPost" table="crm_post">
+        <id name="postId">
+            <generator class="uuid"></generator>
+        </id>
+        <property name="postName"></property>
+        <many-to-one name="crmDepartment" class="com.zzgo.crm.department.domain.CrmDepartment"
+                     column="depId"></many-to-one>
+        <set name="staffSet">
+            <key column="postId"></key>
+            <one-to-many class="com.zzgo.crm.staff.domain.CrmStaff"></one-to-many>
+        </set>
+    </class>
+</hibernate-mapping>
